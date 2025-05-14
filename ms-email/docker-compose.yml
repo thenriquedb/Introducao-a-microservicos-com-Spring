@@ -14,3 +14,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ms_email
+  rabbitmq:
+      image: rabbitmq:4.0.2-management-alpine
+      container_name: email-queue
+      ports:
+        - 5672:5672
+        - 15672:15672
+      environment:
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
+
